@@ -1,2 +1,0 @@
-2222,papas,22.0,3,papa
-3333,sopa,22.0,3,papas

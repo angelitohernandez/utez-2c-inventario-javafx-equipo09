@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.inventarioequipo09.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<HBox spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventarioequipo09.HelloController">
+    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <VBox spacing="10.0" prefWidth="220.0">
+        <Label text="Inventario" style="-fx-font-weight: bold; -fx-font-size: 16;" />
+        <TextField fx:id="txtCodigo" promptText="Código" />
+        <TextField fx:id="txtNombre" promptText="Nombre" />
+        <TextField fx:id="txtPrecio" promptText="Precio" />
+        <TextField fx:id="txtStock" promptText="Stock" />
+        <TextField fx:id="txtCategoria" promptText="Categoría" />
+        <Button text="Guardar Producto" onAction="#onGuardarClick" maxWidth="Infinity" />
+        <Button text="Eliminar Producto" onAction="#onEliminarClick" maxWidth="Infinity" />
+        <Button text="Limpiar Campos" onAction="#onLimpiarClick" maxWidth="Infinity" />
+    </VBox>
+
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+        <TextField fx:id="txtBuscar" promptText="Buscar por nombre o código..." />
+        <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Cod" prefWidth="60" />
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150" />
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="70" />
+                <TableColumn fx:id="colStock" text="Stock" prefWidth="60" />
+                <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="100" />
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>
+
