@@ -13,16 +13,16 @@
         <TextField fx:id="txtPrecio" promptText="Precio" />
         <TextField fx:id="txtStock" promptText="Stock" />
         <TextField fx:id="txtCategoria" promptText="Categoría" />
-        <Button text="Guardar Producto" onAction="#onGuardarClick" maxWidth="Infinity" />
-        <Button text="Eliminar Producto" onAction="#onEliminarClick" maxWidth="Infinity" />
-        <Button text="Limpiar Campos" onAction="#onLimpiarClick" maxWidth="Infinity" />
+        <Button text="Guardar Producto"  maxWidth="Infinity" />
+        <Button text="Eliminar Producto"  maxWidth="Infinity" />
+        <Button text="Limpiar Campos"  maxWidth="Infinity" />
     </VBox>
 
     <VBox spacing="10.0" HBox.hgrow="ALWAYS">
         <TextField fx:id="txtBuscar" promptText="Buscar por nombre o código..." />
         <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
             <columns>
-                <TableColumn fx:id="colCodigo" text="Cod" prefWidth="60" />
+                <TableColumn fx:id="colCodigo" text="Codigo" prefWidth="80" />
                 <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150" />
                 <TableColumn fx:id="colPrecio" text="Precio" prefWidth="70" />
                 <TableColumn fx:id="colStock" text="Stock" prefWidth="60" />
