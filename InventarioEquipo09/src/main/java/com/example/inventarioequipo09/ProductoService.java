@@ -13,4 +13,19 @@ public class ProductoService {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
+    public List<Producto> cargar() {
+        List<Producto> lista = new ArrayList<>();
+        File f = new File(ARCHIVO);
+        if (!f.exists()) return lista;
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] d = linea.split(",");
+                lista.add(new Producto(d[0], d[1], Double.parseDouble(d[2]), Integer.parseInt(d[3]), d[4]));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
 }
