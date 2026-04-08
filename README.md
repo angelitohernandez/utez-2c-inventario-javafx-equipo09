@@ -4,7 +4,7 @@
 
 # INVENTARIO DE PRODUCTOS (Tienda)
 
-# 📝 Descripción del Sistema
+# Descripción del Sistema
 Este es un programa desarrollada en JavaFX diseñada para una tiendita local. El sistema permite administrar el inventario de productos de forma eficiente sin necesidad de bases de datos.
 
 # Características principales (CRUD):
