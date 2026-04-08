@@ -50,29 +50,46 @@ public class HelloController {
     @FXML
     protected void onGuardarClick() {
         try {
+            if (txtCodigo.getText().isEmpty() || txtNombre.getText().isEmpty() ||
+                    txtPrecio.getText().isEmpty() || txtStock.getText().isEmpty()) {
+                throw new Exception("Todos los campos son obligatorios.");
+            }
+
             String codigo = txtCodigo.getText();
+
+            double precio;
+            int stock;
+
+            try {
+                precio = Double.parseDouble(txtPrecio.getText());
+                stock = Integer.parseInt(txtStock.getText());
+            } catch (NumberFormatException e) {
+                throw new Exception("El precio y Stock deben ser valores numéricos válidos.");
+            }
+            if (precio <= 0) {
+                throw new Exception("El precio debe ser mayor a 0.");
+            }
+            if (stock < 0) {
+                throw new Exception("El stock no puede ser negativo.");
+            }
 
             boolean yaExiste = masterData.stream()
                     .anyMatch(p -> p.getCodigo().equalsIgnoreCase(codigo));
 
-
             if (txtCodigo.isEditable() && yaExiste) {
-                throw new Exception("El código '" + codigo + "' ya está registrado. Use otro.");
+                throw new Exception("El código '" + codigo + "' ya está registrado.");
             }
 
             if (!txtCodigo.isEditable()) {
                 Producto sel = tablaProductos.getSelectionModel().getSelectedItem();
                 if (sel != null) {
                     sel.setNombre(txtNombre.getText());
-                    sel.setPrecio(Double.parseDouble(txtPrecio.getText()));
-                    sel.setStock(Integer.parseInt(txtStock.getText()));
+                    sel.setPrecio(precio);
+                    sel.setStock(stock);
                     sel.setCategoria(txtCategoria.getText());
                 }
             } else {
-                masterData.add(new Producto(codigo, txtNombre.getText(),
-                        Double.parseDouble(txtPrecio.getText()),
-                        Integer.parseInt(txtStock.getText()),
-                        txtCategoria.getText()));
+                masterData.add(new Producto(codigo, txtNombre.getText(), precio, stock, txtCategoria.getText()));
             }
 
             service.guardar(masterData);
@@ -83,7 +100,7 @@ public class HelloController {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error de Validación");
             alert.setHeaderText(null);
-            alert.setContentText("Faltan rellenar campos o codigo duplicado.");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
     }
