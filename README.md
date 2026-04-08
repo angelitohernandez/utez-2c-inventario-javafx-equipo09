@@ -19,6 +19,5 @@ Pasos para ejecución:
 1.  Clonar el repositorio
     git clone "URL"
 2.  Abrir el proyecto
-3. 
-3.  Correr la aplicación:Localiza la clase HelloApplication.java.
+3.Correr la aplicación:Localiza la clase HelloApplication.java.
     Haz clic derecho y selecciona Run HelloApplication.main().
