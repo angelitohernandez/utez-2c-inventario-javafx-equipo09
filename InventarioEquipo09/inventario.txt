@@ -1,2 +1,3 @@
 001,Cappucino Moka,17.0,4,Cafes
 002,Maruchan Habanero,21.0,15,Maruchan
+tres,Doritos,18.0,9,Sabritas
