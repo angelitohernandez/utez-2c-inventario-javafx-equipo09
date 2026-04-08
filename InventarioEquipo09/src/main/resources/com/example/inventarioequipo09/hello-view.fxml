@@ -13,9 +13,9 @@
         <TextField fx:id="txtPrecio" promptText="Precio" />
         <TextField fx:id="txtStock" promptText="Stock" />
         <TextField fx:id="txtCategoria" promptText="Categoría" />
-        <Button text="Guardar Producto"  maxWidth="Infinity" />
-        <Button text="Eliminar Producto"  maxWidth="Infinity" />
-        <Button text="Limpiar Campos"  maxWidth="Infinity" />
+        <Button text="Guardar Producto"  maxWidth="Infinity" onAction="#onGuardarClick" />
+        <Button text="Eliminar Producto"  maxWidth="Infinity" onAction="#onEliminarClick"/>
+        <Button text="Limpiar Campos"  maxWidth="Infinity" onAction="#onLimpiarClick" />
     </VBox>
 
     <VBox spacing="10.0" HBox.hgrow="ALWAYS">
@@ -31,4 +31,3 @@
         </TableView>
     </VBox>
 </HBox>
-
