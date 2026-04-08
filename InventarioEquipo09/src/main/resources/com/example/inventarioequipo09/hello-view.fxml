@@ -7,7 +7,7 @@
     <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
 
     <VBox spacing="10.0" prefWidth="220.0">
-        <Label text="Inventario" style="-fx-font-weight: bold; -fx-font-size: 16;" />
+        <Label text="Inventario PAPOYS" style="-fx-font-weight: bold; -fx-font-size: 16;" />
         <TextField fx:id="txtCodigo" promptText="Código" />
         <TextField fx:id="txtNombre" promptText="Nombre" />
         <TextField fx:id="txtPrecio" promptText="Precio" />
