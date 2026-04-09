@@ -5,4 +5,10 @@ module com.example.inventarioequipo09 {
 
     opens com.example.inventarioequipo09 to javafx.fxml;
     exports com.example.inventarioequipo09;
+    exports Controllers;
+    opens Controllers to javafx.fxml;
+    exports ProductoFile;
+    opens ProductoFile to javafx.fxml;
+    exports ProductoService;
+    opens ProductoService to javafx.fxml;
 }

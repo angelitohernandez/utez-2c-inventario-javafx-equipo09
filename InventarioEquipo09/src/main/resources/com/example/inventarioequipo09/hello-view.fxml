@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventarioequipo09.HelloController">
+<HBox spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HelloController">
     <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
 
     <VBox spacing="10.0" prefWidth="220.0">
@@ -13,14 +13,14 @@
         <TextField fx:id="txtPrecio" promptText="Precio" />
         <TextField fx:id="txtStock" promptText="Stock" />
         <TextField fx:id="txtCategoria" promptText="Categoría" />
-        <Button text="Guardar Producto"  maxWidth="Infinity" onAction="#onGuardarClick" />
-        <Button text="Eliminar Producto"  maxWidth="Infinity" onAction="#onEliminarClick"/>
-        <Button text="Limpiar Campos"  maxWidth="Infinity" onAction="#onLimpiarClick" />
+        <Button text="Guardar Producto"  maxWidth="Infinity" onAction="#onGuardarClick" style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+        <Button text="Eliminar Producto"  maxWidth="Infinity" onAction="#onEliminarClick" style="-fx-background-color: #cc2e2e; -fx-text-fill: white;"/>
+        <Button text="Limpiar Campos"  maxWidth="Infinity" onAction="#onLimpiarClick" style="-fx-background-color: #2ea7cc; -fx-text-fill: white;"/>
     </VBox>
 
     <VBox spacing="10.0" HBox.hgrow="ALWAYS">
         <TextField fx:id="txtBuscar" promptText="Buscar por nombre o código..." />
-        <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS" >
             <columns>
                 <TableColumn fx:id="colCodigo" text="Codigo" prefWidth="80" />
                 <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150" />

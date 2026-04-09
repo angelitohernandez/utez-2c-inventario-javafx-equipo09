@@ -1,5 +1,7 @@
-package com.example.inventarioequipo09;
+package Controllers;
 
+import ProductoFile.Producto;
+import ProductoService.ProductoService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -50,29 +52,9 @@ public class HelloController {
     @FXML
     protected void onGuardarClick() {
         try {
-            if (txtCodigo.getText().isEmpty() || txtNombre.getText().isEmpty() ||
-                    txtPrecio.getText().isEmpty() || txtStock.getText().isEmpty()) {
-                throw new Exception("Todos los campos son obligatorios.");
-            }
+            Producto productovalid= service.Validaciones(txtCodigo.getText(),txtNombre.getText(),txtPrecio.getText(),txtStock.getText(),txtCategoria.getText());
 
             String codigo = txtCodigo.getText();
-
-            double precio;
-            int stock;
-
-            try {
-                precio = Double.parseDouble(txtPrecio.getText());
-                stock = Integer.parseInt(txtStock.getText());
-            } catch (NumberFormatException e) {
-                throw new Exception("El precio y Stock deben ser valores numéricos válidos.");
-            }
-            if (precio <= 0) {
-                throw new Exception("El precio debe ser mayor a 0.");
-            }
-            if (stock < 0) {
-                throw new Exception("El stock no puede ser negativo.");
-            }
-
             boolean yaExiste = masterData.stream()
                     .anyMatch(p -> p.getCodigo().equalsIgnoreCase(codigo));
 
@@ -80,6 +62,8 @@ public class HelloController {
                 throw new Exception("El código '" + codigo + "' ya está registrado.");
             }
 
+            double precio = 0;
+            int stock = 0;
             if (!txtCodigo.isEditable()) {
                 Producto sel = tablaProductos.getSelectionModel().getSelectedItem();
                 if (sel != null) {

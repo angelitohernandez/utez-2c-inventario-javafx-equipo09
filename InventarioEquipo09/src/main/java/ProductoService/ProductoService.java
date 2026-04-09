@@ -1,4 +1,6 @@
-package com.example.inventarioequipo09;
+package ProductoService;
+
+import ProductoFile.Producto;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,6 +8,29 @@ import java.util.List;
 
 public class ProductoService {
     private final String ARCHIVO = "inventario.txt";
+
+    public Producto Validaciones(String codigo, String nombre, String precioStr, String stockStr, String categoria) throws Exception {
+        double precio;
+        int stock;
+        if (codigo.isEmpty() || nombre.isEmpty() || precioStr.isEmpty() || stockStr.isEmpty() || categoria.isEmpty()) {
+            throw new Exception("Todos los campos son obligatorios.");
+        }
+        try {
+            precio = Double.parseDouble(precioStr);
+            stock = Integer.parseInt(stockStr);
+        } catch (NumberFormatException e) {
+            throw new Exception("El precio y Stock deben ser valores numéricos válidos.");
+        }
+        if (precio <= 0) {
+            throw new Exception("El precio debe ser mayor a 0.");
+        }
+        if (stock < 0) {
+            throw new Exception("El stock no puede ser negativo.");
+        }
+
+        return new Producto(codigo, nombre, precio, stock, categoria);
+    }
+
 
     public void guardar(List<Producto> lista) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(ARCHIVO))) {

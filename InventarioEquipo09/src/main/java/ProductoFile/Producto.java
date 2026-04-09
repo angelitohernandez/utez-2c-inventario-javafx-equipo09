@@ -1,4 +1,4 @@
-package com.example.inventarioequipo09;
+package ProductoFile;
 
 public class Producto {
     private String nombre;
