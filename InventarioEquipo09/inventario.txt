@@ -1,5 +1,5 @@
-001,Cappucino Vainilla,17.0,4,Cafes
+001,Cappucino Moka,17.0,4,Cafes
 002,Maruchan Habanero,21.0,15,Maruchan
 003,Doritos,18.0,2,Sabritas
-004,Coca-Cola,32.0,11,Refresco
-005,Takis,20.0,12,Barcel
+004,Coca-Cola,32.0,21,Refresco
+005,Takis,21.0,12,Barcel
